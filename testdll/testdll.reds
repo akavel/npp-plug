@@ -17,8 +17,11 @@ Red/System [
 
 		Foobar: function [
 			[callback]
+			n [integer!]
 		][
 			print "Hello, worrrld"
+			print "^(0a)" ; newline
+			print n
 		]
-#export stdcall [Foobar]
+#export [Foobar]
 

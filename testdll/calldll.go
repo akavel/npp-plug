@@ -9,5 +9,5 @@ func main() {
 	dll := syscall.MustLoadDLL("testdll.dll")
 	println("found DLL\n")
 	proc := dll.MustFindProc("Foobar")
-	proc.Call()
+	proc.Call(25)
 }
