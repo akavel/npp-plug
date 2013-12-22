@@ -1,10 +1,21 @@
-
 Red/System [
 	Title: "Plugin for Notepad++ automation via messages sent through WinAPI Named Pipes"
 	Author: "Mateusz Czapliński <czapkofan@gmail.com>"
 	Rights: "Copyright (c) 2013 by Mateusz Czapliński"
 	License: "MIT/X11"
 ]
+
+#include %wstring.reds
+
+name: utf-to-new-wstr "testRed"
+
+;on-load: func [hModule [integer!]][
+;	
+;]
+;on-unload: func [hModule [integer!]][
+;	free name
+;]
+
 
 isUnicode: func [
 	"If this function is exported (must return 'true'), then Notepad++ assumes this is a Unicode plugin"
@@ -22,11 +33,12 @@ setInfo: func [
 
 getName: func [
 	"Returns name of the plugin, to appear in the Plugin menu"
-	return: [pointer! [integer!]] "WSTR unicode string"
+	return: [byte-ptr!] "WSTR unicode string"
 ][
 	;... fixme todo!
 	;0
-	as pointer! [integer!] 0
+	;as pointer! [integer!] 0
+	name
 ]
 
 getFuncArray: func [
