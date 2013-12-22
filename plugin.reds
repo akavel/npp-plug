@@ -27,9 +27,10 @@ on-load: func [
 	/local
 		fdata
 ][
-	name: utf-to-new-wstr "testRed"
+	name: ansi-to-new-wstr "testRed"
 	
 	funcs: allocate (64 + size? FuncItemData!)
+	ansi-to-wstr "About" funcs
 	fdata: as FuncItemData! (funcs + 64)
 	fdata/pfunc: :donothing
 	fdata/cmdid: 0

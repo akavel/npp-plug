@@ -4,7 +4,7 @@ Red/System [
 	File: %wstring.reds
 ]
 
-utf-to-new-wstr: func [
+ansi-to-new-wstr: func [
 	s [c-string!]
 	return: [byte-ptr!]
 	/local
@@ -14,15 +14,25 @@ utf-to-new-wstr: func [
 ][
 	zero: #"^(00)"
 	buf: allocate 2 * size? s
-	pbuf: buf
+	ansi-to-wstr s buf
+	buf
+]
+
+ansi-to-wstr: func [
+	s [c-string!]
+	buf [byte-ptr!]
+	/local
+		pbuf [byte-ptr!]
+		zero [byte!]
+][
+	zero: #"^(00)"
 	while [s/1 <> zero][
 		; little endian...
-		pbuf/1: s/1
-		pbuf/2: zero
-		pbuf: pbuf + 2
+		buf/1: s/1
+		buf/2: zero
+		buf: buf + 2
 		s: s + 1
 	]
-	pbuf/1: zero
-	pbuf/2: zero
-	buf
+	buf/1: zero
+	buf/2: zero
 ]
