@@ -40,11 +40,12 @@ getName: func [
 	name
 ]
 
-getFuncArray: func [
+getFuncsArray: func [
 	n [pointer! [integer!]] "number of entries in returned array"
 	;return: [pointer! [struct!]] "pointer to an array of structures that describe the exposed functions"
 	return: [pointer! [byte!]] "pointer to an array of structures that describe the exposed functions"
 ][
+	n/1: 0
 	as pointer! [byte!] 0
 ]
 
@@ -62,4 +63,4 @@ messageProc: func [
 	0
 ]
 
-#export [isUnicode setInfo getName getFuncArray beNotified]
+#export [isUnicode setInfo getName getFuncsArray beNotified messageProc]
