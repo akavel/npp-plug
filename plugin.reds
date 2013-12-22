@@ -30,7 +30,7 @@ on-load: func [
 	name: ansi-to-new-wstr "testRed"
 	
 	funcs: allocate (64 + size? FuncItemData!)
-	ansi-to-wstr "About" funcs
+	ansi-to-wstr "About" funcs   ;-- string must not exceed 64/2=32 bytes, including NULL
 	fdata: as FuncItemData! (funcs + 64)
 	fdata/pfunc: :donothing
 	fdata/cmdid: 0
