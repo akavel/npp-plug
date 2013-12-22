@@ -7,14 +7,13 @@ Red/System [
 
 #include %wstring.reds
 
-name: utf-to-new-wstr "testRed"
-
-;on-load: func [hModule [integer!]][
-;	
-;]
-;on-unload: func [hModule [integer!]][
-;	free name
-;]
+on-load: func [hModule [integer!]][
+	name: utf-to-new-wstr "testRed"
+]
+on-unload: func [hModule [integer!]][
+	free name
+	name: as byte-ptr! 0
+]
 
 
 isUnicode: func [
