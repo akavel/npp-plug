@@ -2,9 +2,12 @@ Red/System [
 	Title: "Utilities for conversion to WinAPI WSTR (WCHAR*)"
 	Author: "Mateusz Czapliński <czapkofan@gmail.com>"
 	File: %wstring.reds
+	Rights: "Copyright (c) 2013 by Mateusz Czapliński"
+	License: "MIT/X11"
 ]
 
 ansi-to-new-wstr: func [
+	"Allocates memory block and writes string converted to UCS-2 (WCHAR) with trailing NULL"
 	s [c-string!]
 	return: [byte-ptr!]
 	/local
@@ -19,6 +22,7 @@ ansi-to-new-wstr: func [
 ]
 
 ansi-to-wstr: func [
+	"Writes to buf a UCS-2 (WCHAR) string from s, with trailing NULL"
 	s [c-string!]
 	buf [byte-ptr!]
 	/local
