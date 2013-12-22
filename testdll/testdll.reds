@@ -9,19 +9,12 @@ Red/System [
 	}
 ]
 
-
-;--on-load:        func [hModule [integer!]][ ]
-;--on-unload:      func [hModule [integer!]][ ]
-;--on-new-thread:  func [hModule [integer!]][ ] ;-- Windows-specific callback
-;--on-exit-thread: func [hModule [integer!]][ ] ;-- Windows-specific callback
-
-		Foobar: function [
-			[callback]
-			n [integer!]
-		][
-			print "Hello, worrrld"
-			print "^(0a)" ; newline
-			print n
-		]
+Foobar: function [
+	n [integer!]
+][
+	print "Hello, worrrld"
+	print "^(0a)" ; newline
+	print n
+]
 #export [Foobar]
 
